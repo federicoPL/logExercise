@@ -63,11 +63,13 @@ public class JobLoggerTest {
         jobLogger.logMessage(log, new HashMap<String, String>(){{ put("filePath", logFile.getAbsolutePath());}}, FileLogWriter.getInstance());
     }
 
+    // This should be using mocks for the connection to the database but for now we'll leave it like this
     @Test(expected = Exception.class)
     public void dbLogTest() {
         jobLogger.logMessage(log, null, DBLogWriter.getInstance());
     }
 
+    // This should be using mocks for the connection to the database but for now we'll leave it like this
     @Test(expected = Exception.class)
     public void multipleLogWritersTest() {
         jobLogger.logMessage(
